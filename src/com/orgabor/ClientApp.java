@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
-public class Main {
+public class ClientApp {
 
 	public static void main(String[] args) {
 		try(Socket socket = new Socket("localhost", 5000)) {
@@ -30,9 +30,10 @@ public class Main {
 				}
 			} while(!echoString.contentEquals("exit"));
 			
+			scanner.close();
+			
 		} catch(IOException e) {
 			System.out.println("Client exception: " + e.getMessage());
-		}
+		}		
 	}
-
 }
